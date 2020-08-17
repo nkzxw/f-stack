@@ -58,11 +58,11 @@ DPDK_CFLAGS+= -I${FF_DPDK}/include
 
 KERNPREINCLUDES:= ${INCLUDES}
 INCLUDES= -I${OVERRIDE_INCLUDES_ROOT} ${KERNPREINCLUDES}
-INCLUDES+= -I./machine_include
-INCLUDES+= -I./opt
+INCLUDES+= -I${MACHINE_INCLUDES_ROOT}
+INCLUDES+= -I${CURDIR}/opt
 
 # Include search path for files that only include host OS headers
-HOST_INCLUDES= -I.
+HOST_INCLUDES= -I${CURDIR}
 ifndef DEBUG
 HOST_CFLAGS = -O2 -frename-registers  -funswitch-loops -fweb -Wno-format-truncation
 else
